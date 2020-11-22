@@ -548,3 +548,7 @@ gradle-app.setting
 **/build/
 
 # End of https://www.toptal.com/developers/gitignore/api/vue,java,node,yarn,linux,macos,maven,scala,emacs,vuejs,vscode,gradle,eclipse,windows,netbeans,java-web,sonarqube,intellij+all,angular,react
+
+
+/.classpath
+/.project
