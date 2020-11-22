@@ -1,0 +1,16 @@
+spring:
+  jpa:
+    properties:
+      hibernate.jdbc.time_zone: UTC
+    show-sql: true
+  profiles:
+    active: dev
+
+logging:
+  level:
+    root: info
+
+application:
+  config:
+    codeSize: 6
+    hashAlgorithm: SHA-1
