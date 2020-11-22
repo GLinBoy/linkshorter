@@ -62,7 +62,7 @@ It's like any Spring Boot application If you been familar with them, creating a 
 
 ## Built With
 
-  - [Java](https://adoptopenjdk.net/) - Main Development language, used version 11
+  - [Java](https://adoptopenjdk.net/) - Main Development language, used version 15
   - [Spring Boot](https://spring.io/projects/spring-boot) - For IOC and loos copeling
   - [Gradle](https://gradle.org/) - for dependency management and build tools
 
