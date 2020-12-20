@@ -1,5 +1,5 @@
 plugins {
-	id 'org.springframework.boot' version '2.4.0'
+	id 'org.springframework.boot' version '2.4.1'
 	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
 	id 'java'
 }
@@ -7,10 +7,6 @@ plugins {
 group = 'com.glibnoy'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '15'
-
-ext {
-	mapstructVersion = "1.4.1.Final"
-}
 
 configurations {
 	compileOnly {
@@ -27,15 +23,13 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.flywaydb:flyway-core'
-	implementation 'org.mapstruct:mapstruct:1.4.1.Final'
+	implementation 'org.modelmapper:modelmapper:2.3.9'
 	compileOnly 'org.projectlombok:lombok'
-	compileOnly 'org.mapstruct:mapstruct-processor:1.4.1.Final'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.h2database:h2'
 	runtimeOnly 'org.postgresql:postgresql'
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	annotationProcessor 'org.projectlombok:lombok'
-	annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.1.Final'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
@@ -43,6 +37,17 @@ tasks.withType(JavaCompile) {
 	options.compilerArgs = [
 		'-Amapstruct.suppressGeneratorTimestamp=true'
 	]
+}
+
+bootRun {
+	jvmArgs = ['-XX:+UseZGC',
+				'-Xlog:gc*:file=log/linkshorter.gc.log',
+				'-XX:+HeapDumpOnOutOfMemoryError',
+				'-XX:HeapDumpPath=log/crashes/linkshorter.hprof',
+				'-Xss256k',
+				'-Dsun.net.client.defaultConnectTimeout=2000',
+				'-Dsun.net.client.defaultReadTimeout=2000'
+			]
 }
 
 test {

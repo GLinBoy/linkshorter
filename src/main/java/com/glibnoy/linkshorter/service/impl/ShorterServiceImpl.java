@@ -3,6 +3,7 @@ package com.glibnoy.linkshorter.service.impl;
 import java.security.NoSuchAlgorithmException;
 import java.util.Optional;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -12,7 +13,6 @@ import com.glibnoy.linkshorter.repository.UrlRepository;
 import com.glibnoy.linkshorter.service.ShorterServiceApi;
 import com.glibnoy.linkshorter.service.UrlEncoderApi;
 import com.glibnoy.linkshorter.service.dto.UrlDTO;
-import com.glibnoy.linkshorter.service.mapper.UrlMapper;
 import com.glibnoy.linkshorter.util.ApplicationProperties;
 
 import lombok.extern.log4j.Log4j2;
@@ -23,15 +23,15 @@ public class ShorterServiceImpl implements ShorterServiceApi {
 	
 	private final UrlRepository repository;
 	
-	private final UrlMapper mapper;
+	private final ModelMapper mapper;
 	
 	private final UrlEncoderApi urlEncoder;
 	
 	private final ApplicationProperties applicationProperties;
 
 	public ShorterServiceImpl(UrlRepository repository,
-			UrlMapper mapper,
 			UrlEncoderApi urlEncoder,
+			ModelMapper mapper,
 			ApplicationProperties applicationProperties) {
 		this.repository = repository;
 		this.mapper = mapper;
@@ -42,15 +42,15 @@ public class ShorterServiceImpl implements ShorterServiceApi {
 	@Override
 	public UrlDTO makeShort(UrlDTO urlDTO) {
 		log.info("URL requested to become shoter: {}", urlDTO);
-		Url url = mapper.toEntity(encodeUrl(urlDTO));
+		Url url = mapper.map(encodeUrl(urlDTO), Url.class);
 		url = repository.save(url);
-		return mapper.toDto(url);
+		return mapper.map(url, UrlDTO.class);
 	}
 
 	@Override
 	public Optional<UrlDTO> getShort(String code) {
 		return repository.findOneByCode(code)
-				.map(mapper::toDto);
+				.map(c -> mapper.map(c, UrlDTO.class));
 	}
 	
 	private UrlDTO encodeUrl(UrlDTO url) {
