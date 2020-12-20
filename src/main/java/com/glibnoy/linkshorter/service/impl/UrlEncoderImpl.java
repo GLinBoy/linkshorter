@@ -26,7 +26,7 @@ public class UrlEncoderImpl implements UrlEncoderApi {
 		return byteToHex(md.digest());
 	}
 
-	private static String byteToHex(final byte[] hash) {
+	private String byteToHex(final byte[] hash) {
 		Formatter formatter = new Formatter();
 		for (byte b : hash) {
 			formatter.format("%02x", b);
