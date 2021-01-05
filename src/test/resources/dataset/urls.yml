@@ -1,0 +1,11 @@
+URL: 
+  - ID: 1
+    CODE: "123456"
+    ORIGINAL: "https://glinboy.com"
+    CREATED_AT: "2013-01-20"
+    UPDATED_AT: "2013-01-20"
+  - ID: 2
+    CODE: "654321"
+    ORIGINAL: "https://glinboy.ir"
+    CREATED_AT: "2013-01-20"
+    UPDATED_AT: "2013-01-20"
