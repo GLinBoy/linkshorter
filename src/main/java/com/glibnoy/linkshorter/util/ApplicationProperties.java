@@ -11,9 +11,9 @@ import lombok.Setter;
  * Properties are configured in the {@code application.yml} file.
  * See {@link io.github.jhipster.config.JHipsterProperties} for a good example.
  */
-@ConfigurationProperties(prefix = "application", ignoreUnknownFields = false)
 @Getter
 @Setter
+@ConfigurationProperties(prefix = "application", ignoreUnknownFields = false)
 public final class ApplicationProperties {
 
 	private final Config config = new Config();
