@@ -1,5 +1,6 @@
 package com.glibnoy.linkshorter.controller;
 
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,7 +23,7 @@ public class ShorterController {
 	@PostMapping
 	public ResponseEntity<UrlDTO> getShortUrl(@RequestBody UrlDTO urlDTO) {
 		UrlDTO shorted = shorterService.makeShort(urlDTO);
-		return ResponseEntity.ok().body(shorted);
+		return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(shorted);
 	}
 
 }
