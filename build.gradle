@@ -18,22 +18,27 @@ repositories {
 	mavenCentral()
 }
 
+ext {
+	modelMapperVersion = '2.3.9'
+	riderJunitVersion = '1.21.0'
+}
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.flywaydb:flyway-core'
-	implementation 'org.modelmapper:modelmapper:2.3.9'
+	implementation "org.modelmapper:modelmapper:${modelMapperVersion}"
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.h2database:h2'
 	runtimeOnly 'org.postgresql:postgresql'
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test' {
-        exclude group: 'junit', module: 'junit'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
-	testImplementation 'com.github.database-rider:rider-junit5:1.21.0'
+	testImplementation "com.github.database-rider:rider-junit5:${riderJunitVersion}"
 }
 
 tasks.withType(JavaCompile) {
@@ -54,5 +59,7 @@ bootRun {
 }
 
 test {
+	systemProperty 'spring.profiles.active', 'test'
+	testLogging.showStandardStreams = true
 	useJUnitPlatform()
 }

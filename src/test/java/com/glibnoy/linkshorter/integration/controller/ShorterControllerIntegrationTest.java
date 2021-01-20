@@ -12,6 +12,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.web.client.RestTemplate;
 
 import com.github.database.rider.junit5.api.DBRider;
@@ -20,6 +21,7 @@ import com.glibnoy.linkshorter.service.dto.UrlDTO;
 import com.glibnoy.linkshorter.util.TestUtils;
 
 @DBRider
+@ActiveProfiles("test")
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 class ShorterControllerIntegrationTest {
 	
