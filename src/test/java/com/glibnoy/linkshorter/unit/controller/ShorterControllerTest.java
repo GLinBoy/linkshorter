@@ -51,7 +51,8 @@ class ShorterControllerTest {
 		doReturn(u).when(shorterService).makeShort(original);
 		
 		ResponseEntity<UrlDTO> shortedUrlResponse = shorterController.getShortUrl(original);
-		assertThat(shortedUrlResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
+		assertThat(shortedUrlResponse.getStatusCode()).isEqualTo(HttpStatus.CREATED);
+		assertThat(shortedUrlResponse.getHeaders().get(HttpHeaders.LOCATION)).endsWith("/".concat(defaultCode));
 		assertThat(shortedUrlResponse.getHeaders().get(HttpHeaders.CONTENT_TYPE))
 			.contains(MediaType.APPLICATION_JSON.toString());
 		assertThat(shortedUrlResponse.getBody().getId()).isEqualTo(defaultId);
