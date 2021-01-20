@@ -16,13 +16,14 @@ import org.springframework.web.client.RestTemplate;
 import com.github.database.rider.core.api.dataset.DataSet;
 import com.github.database.rider.junit5.api.DBRider;
 import com.glibnoy.linkshorter.controller.HomeController;
+import com.glibnoy.linkshorter.util.TestUtils;
 
 @DBRider
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 class HomeControllerIntegrationTest {
 	
 	@LocalServerPort
-    private int port;
+    private Integer port;
  
     @Autowired
     HomeController homeController;
@@ -36,7 +37,7 @@ class HomeControllerIntegrationTest {
 
 	@Test
 	void testGetHome() {
-		ResponseEntity<String> response = restTemplate.exchange(createURLWithPort("/"), HttpMethod.GET, null, String.class);
+		ResponseEntity<String> response = restTemplate.exchange(TestUtils.createURLWithPort(port, "/"), HttpMethod.GET, null, String.class);
 		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
 		assertThat(response.getBody()).isEqualTo("Home...");
 	}
@@ -45,13 +46,9 @@ class HomeControllerIntegrationTest {
 	@DataSet(value = "dataset/urls.yml", cleanBefore = true)
 	void testGetUrl() {
 		String code = "123456";
-		ResponseEntity<String> response = restTemplate.exchange(createURLWithPort("/".concat(code)), HttpMethod.GET, null, String.class);
+		ResponseEntity<String> response = restTemplate.exchange(TestUtils.createURLWithPort(port, "/".concat(code)), HttpMethod.GET, null, String.class);
 		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.FOUND);
 		assertThat(response.getHeaders().get(HttpHeaders.LOCATION)).contains("https://glinboy.com");
-	}
-
-	private String createURLWithPort(String uri) {
-		return "http://localhost:".concat(String.valueOf(port)).concat(uri);
 	}
 
 }
