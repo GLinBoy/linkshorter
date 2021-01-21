@@ -46,7 +46,9 @@ Please, Lemme finish project and then give you installation instructions 😊
 
 ## Running the tests
 
-I didn't develop any test for project, YET, but I will add tests as soon as possible.
+Run this command on root of project:
+
+    ./gradlew clean test
 
 ### Break down into end to end tests
 
