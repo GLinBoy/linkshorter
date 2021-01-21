@@ -11,16 +11,18 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.web.client.RestTemplate;
 
-import com.github.database.rider.core.api.dataset.DataSet;
-import com.github.database.rider.junit5.api.DBRider;
 import com.glibnoy.linkshorter.controller.HomeController;
+import com.glibnoy.linkshorter.entity.Url;
+import com.glibnoy.linkshorter.repository.UrlRepository;
 import com.glibnoy.linkshorter.util.TestUtils;
 
-@DBRider
 @ActiveProfiles("test")
+@DirtiesContext(classMode = ClassMode.BEFORE_CLASS)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 class HomeControllerIntegrationTest {
 	
@@ -30,7 +32,13 @@ class HomeControllerIntegrationTest {
     @Autowired
     HomeController homeController;
     
+    @Autowired
+    UrlRepository repository;
+    
     RestTemplate restTemplate = new RestTemplate();
+    
+    private final String defaultCode = "d726d2";
+ 	private final String defaultUrl = "https://glinboy.com";
     
     @Test
 	void contextLoads() {
@@ -45,10 +53,11 @@ class HomeControllerIntegrationTest {
 	}
 
 	@Test
-	@DataSet(value = "dataset/urls.yml", cleanBefore = true)
 	void testGetUrl() {
-		String code = "123456";
-		ResponseEntity<String> response = restTemplate.exchange(TestUtils.createURLWithPort(port, "/".concat(code)), HttpMethod.GET, null, String.class);
+    	Url saved = repository.save(Url.builder().code(defaultCode).original(defaultUrl).build());
+    	assertThat(saved.getId()).isPositive();
+		ResponseEntity<String> response = restTemplate.exchange(TestUtils.createURLWithPort(port, "/".concat(defaultCode)),
+				HttpMethod.GET, null, String.class);
 		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.FOUND);
 		assertThat(response.getHeaders().get(HttpHeaders.LOCATION)).contains("https://glinboy.com");
 	}

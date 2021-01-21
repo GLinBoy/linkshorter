@@ -16,6 +16,7 @@ import com.glibnoy.linkshorter.repository.UrlRepository;
 
 @DataJpaTest
 @DBRider
+@DataSet(cleanBefore = true, cleanAfter = true)
 @ActiveProfiles("test")
 class UrlRepositoryTest {
 	
@@ -37,7 +38,7 @@ class UrlRepositoryTest {
 	}
 
 	@Test
-	@DataSet(value = "dataset/urls.yml", cleanBefore = true)
+	@DataSet(value = "dataset/urls.yml")
 	void testFindOneByCode() {
 		String code = "123456";
 		Optional<Url> urlOpt = urlRepository.findOneByCode(code);
