@@ -21,6 +21,7 @@ repositories {
 ext {
 	modelMapperVersion = '2.3.9'
 	riderJunitVersion = '1.21.0'
+	openapiVersion = '1.5.2'
 }
 
 dependencies {
@@ -29,6 +30,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.flywaydb:flyway-core'
 	implementation "org.modelmapper:modelmapper:${modelMapperVersion}"
+	implementation "org.springdoc:springdoc-openapi-ui:${openapiVersion}"
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.h2database:h2'

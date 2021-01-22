@@ -14,10 +14,13 @@ import org.springframework.web.server.ResponseStatusException;
 import com.glibnoy.linkshorter.service.ShorterServiceApi;
 import com.glibnoy.linkshorter.service.dto.UrlDTO;
 
+import io.swagger.v3.oas.annotations.Hidden;
 import lombok.extern.slf4j.Slf4j;
 
-@Controller
+
 @Slf4j
+@Hidden
+@Controller
 public class HomeController {
 	
 	private final ShorterServiceApi shorterService;

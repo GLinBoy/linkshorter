@@ -16,6 +16,13 @@ import lombok.Setter;
 @ConfigurationProperties(prefix = "application", ignoreUnknownFields = false)
 public final class ApplicationProperties {
 
+	private String name;
+	private String description;
+	private String version;
+	private String license;
+	private String licenseUrl;
+	private String githubUrl;
+	
 	private final Config config = new Config();
 	
 	@Getter

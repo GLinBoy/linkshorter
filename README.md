@@ -2,6 +2,8 @@
 
 This is a URL shorter like bit.ly and etc.
 
+[![Build Status](https://travis-ci.com/GLinBoy/linkshorter.svg?branch=develop)](https://travis-ci.com/GLinBoy/linkshorter)
+
 ### NOTE: This Application is under development, and isn't ready for production purpose.
 
 ## Summary

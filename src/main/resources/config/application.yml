@@ -11,6 +11,12 @@ logging:
     root: info
 
 application:
+  name: LinkShorter API
+  description: This is a URL shorter like bit.ly
+  version: 0.0.1-SNAPSHOT
+  license: MIT License
+  License-url: https://github.com/GLinBoy/linkshorter/blob/master/LICENSE.md
+  github-url: https://github.com/GLinBoy/linkshorter
   config:
     codeSize: 6
     hashAlgorithm: SHA-1
