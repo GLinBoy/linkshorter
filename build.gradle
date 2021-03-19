@@ -4,9 +4,10 @@ plugins {
 	id 'java'
 }
 
-group = 'com.glibnoy'
+group = 'com.glinboy'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '16'
+sourceCompatibility = 16
+targetCompatibility = 16
 
 configurations {
 	compileOnly {
