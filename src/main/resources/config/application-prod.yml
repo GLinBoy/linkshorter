@@ -1,4 +1,4 @@
 spring:
-  connfig:
+  config:
      activate:
         on-profile: prod

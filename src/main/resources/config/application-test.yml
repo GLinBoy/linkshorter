@@ -1,5 +1,5 @@
 spring:
-  connfig:
+  config:
      activate:
         on-profile: test
   datasource:
