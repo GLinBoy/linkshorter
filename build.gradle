@@ -1,5 +1,5 @@
 plugins {
-	id 'org.springframework.boot' version '2.4.4'
+	id 'org.springframework.boot' version '2.4.5'
 	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
 	id 'java'
 }
@@ -23,7 +23,6 @@ ext {
 	modelMapperVersion = '2.3.9'
 	riderJunitVersion = '1.21.0'
 	openapiVersion = '1.5.2'
-	lombokVersion = '1.18.20'
 }
 
 dependencies {
@@ -33,12 +32,12 @@ dependencies {
 	implementation 'org.flywaydb:flyway-core'
 	implementation "org.modelmapper:modelmapper:${modelMapperVersion}"
 	implementation "org.springdoc:springdoc-openapi-ui:${openapiVersion}"
-	compileOnly "org.projectlombok:lombok:${lombokVersion}"
+	compileOnly "org.projectlombok:lombok"
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.h2database:h2'
 	runtimeOnly 'org.postgresql:postgresql'
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
-	annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+	annotationProcessor "org.projectlombok:lombok"
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation "com.github.database-rider:rider-junit5:${riderJunitVersion}"
 }
