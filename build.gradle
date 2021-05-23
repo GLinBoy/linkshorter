@@ -26,6 +26,8 @@ ext {
 	openapiVersion = '1.5.9'
 }
 
+defaultTasks "bootRun"
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
