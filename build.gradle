@@ -22,7 +22,7 @@ repositories {
 
 ext {
 	modelMapperVersion = '2.4.3'
-	riderJunitVersion = '1.23.1'
+	riderJunitVersion = '1.24.0'
 	openapiVersion = '1.5.9'
 }
 
