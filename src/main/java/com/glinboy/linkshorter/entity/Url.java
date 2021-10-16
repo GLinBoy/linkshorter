@@ -33,7 +33,8 @@ import lombok.NoArgsConstructor;
       @UniqueConstraint(name = "UNQ_ORGINAL", columnNames = { "orginal" })
   },
   indexes = {
-      @Index(name = "INDX_CODE", columnList = "code")
+      @Index(name = "INDX_CODE", columnList = "code"),
+      @Index(name = "INDX_ORGINAL", columnList = "orginal")
   })
 public class Url {
 	
