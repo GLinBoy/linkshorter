@@ -8,6 +8,7 @@ import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -26,10 +27,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
-@Table(uniqueConstraints = {
-    @UniqueConstraint(name =  "UNQ_CODE", columnNames = { "code" }),
-    @UniqueConstraint(name = "UNQ_ORGINAL", columnNames = { "orginal" })
-})
+@Table(
+    uniqueConstraints = {
+      @UniqueConstraint(name =  "UNQ_CODE", columnNames = { "code" }),
+      @UniqueConstraint(name = "UNQ_ORGINAL", columnNames = { "orginal" })
+  },
+  indexes = {
+      @Index(name = "INDX_CODE", columnList = "code")
+  })
 public class Url {
 	
 	@Id
