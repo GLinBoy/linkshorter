@@ -27,7 +27,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
 @Table(uniqueConstraints = {
-    @UniqueConstraint(name =  "UNQ_CODE", columnNames = { "code" })
+    @UniqueConstraint(name =  "UNQ_CODE", columnNames = { "code" }),
+    @UniqueConstraint(name = "UNQ_ORGINAL", columnNames = { "orginal" })
 })
 public class Url {
 	
@@ -38,7 +39,7 @@ public class Url {
 	@Column(nullable = false)
 	private String code;
 
-	@Column(nullable = false, unique = true)
+	@Column(nullable = false)
 	private String original;
 	
 	@CreatedDate
