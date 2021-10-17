@@ -30,11 +30,11 @@ import lombok.NoArgsConstructor;
 @Table(
     uniqueConstraints = {
       @UniqueConstraint(name =  "UNQ_CODE", columnNames = { "code" }),
-      @UniqueConstraint(name = "UNQ_ORGINAL", columnNames = { "orginal" })
+      @UniqueConstraint(name = "UNQ_ORGINAL", columnNames = { "original" })
   },
   indexes = {
       @Index(name = "INDX_CODE", columnList = "code"),
-      @Index(name = "INDX_ORGINAL", columnList = "orginal")
+      @Index(name = "INDX_ORGINAL", columnList = "original")
   })
 public class Url {
 	
