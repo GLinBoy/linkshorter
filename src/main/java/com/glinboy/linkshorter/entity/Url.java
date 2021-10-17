@@ -42,7 +42,7 @@ public class Url {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(nullable = false)
+	@Column(name = "code", nullable = false)
 	private String code;
 
 	@Column(nullable = false)
