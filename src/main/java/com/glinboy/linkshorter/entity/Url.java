@@ -45,7 +45,7 @@ public class Url {
 	@Column(name = "code", nullable = false)
 	private String code;
 
-	@Column(nullable = false)
+	@Column(name = "original", nullable = false)
 	private String original;
 	
 	@CreatedDate
