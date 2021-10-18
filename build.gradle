@@ -3,7 +3,7 @@ plugins {
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
 	id 'com.github.ben-manes.versions' version '0.39.0'
-    id "org.ec4j.editorconfig" version "0.0.3"
+  id "org.ec4j.editorconfig" version "0.0.3"
 }
 
 group = 'com.glinboy'
@@ -25,6 +25,7 @@ ext {
 	modelMapperVersion = '2.4.4'
 	riderJunitVersion = '1.29.0'
 	openapiVersion = '1.5.10'
+  problemVersion = '0.27.0'
 }
 
 defaultTasks "bootRun"
@@ -47,6 +48,7 @@ dependencies {
 	annotationProcessor "org.projectlombok:lombok"
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation "com.github.database-rider:rider-junit5:${riderJunitVersion}"
+	implementation "org.zalando:problem-spring-web-starter:${problemVersion}"
 }
 
 tasks.withType(JavaCompile) {
