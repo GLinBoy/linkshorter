@@ -30,8 +30,8 @@ import lombok.NoArgsConstructor;
 //@formatter:off
 @Table(
     uniqueConstraints = {
-      @UniqueConstraint(name = "UNQ_CODE", columnNames = { "code" }),
-      @UniqueConstraint(name = "UNQ_ORGINAL", columnNames = { "original" })
+      @UniqueConstraint(name = "UNQ_CODE", columnNames = { "CODE" }),
+      @UniqueConstraint(name = "UNQ_ORGINAL", columnNames = { "ORIGINAL" })
   },
   indexes = {
       @Index(name = "INDX_CODE", columnList = "code"),
@@ -44,10 +44,10 @@ public class Url {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @Column(name = "code", nullable = false)
+  @Column(name = "CODE", nullable = false)
   private String code;
 
-  @Column(name = "original", nullable = false)
+  @Column(name = "ORIGINAL", nullable = false)
   private String original;
 
   @CreatedDate
