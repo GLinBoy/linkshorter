@@ -27,32 +27,34 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
+//@formatter:off
 @Table(
     uniqueConstraints = {
-      @UniqueConstraint(name =  "UNQ_CODE", columnNames = { "code" }),
+      @UniqueConstraint(name = "UNQ_CODE", columnNames = { "code" }),
       @UniqueConstraint(name = "UNQ_ORGINAL", columnNames = { "original" })
   },
   indexes = {
       @Index(name = "INDX_CODE", columnList = "code"),
-      @Index(name = "INDX_ORGINAL", columnList = "original")
+        @Index(name = "INDX_ORGINAL", columnList = "original")
   })
+//@formatter:on
 public class Url {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
-	@Column(name = "code", nullable = false)
-	private String code;
 
-	@Column(name = "original", nullable = false)
-	private String original;
-	
-	@CreatedDate
-	@Column(name = "CREATED_AT", nullable = false)
-	private LocalDateTime createdAt;
-	
-	@LastModifiedDate
-	@Column(name = "UPDATED_AT", nullable = false)
-	private LocalDateTime updatedAt;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+
+  @Column(name = "code", nullable = false)
+  private String code;
+
+  @Column(name = "original", nullable = false)
+  private String original;
+
+  @CreatedDate
+  @Column(name = "CREATED_AT", nullable = false)
+  private LocalDateTime createdAt;
+
+  @LastModifiedDate
+  @Column(name = "UPDATED_AT", nullable = false)
+  private LocalDateTime updatedAt;
 }
