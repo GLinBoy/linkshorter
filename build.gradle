@@ -1,5 +1,5 @@
 plugins {
-	id 'org.springframework.boot' version '2.6.3'
+	id 'org.springframework.boot' version '2.6.4'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
 	id 'com.github.ben-manes.versions' version '0.41.0'
@@ -25,7 +25,7 @@ ext {
 	modelMapperVersion = '3.0.0'
 	riderJunitVersion = '1.32.1'
 	openapiVersion = '1.6.4'
-  problemVersion = '0.27.0'
+	problemVersion = '0.27.0'
 }
 
 defaultTasks "bootRun"
