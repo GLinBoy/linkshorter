@@ -6,8 +6,6 @@ import static org.mockito.Mockito.doReturn;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
-import javax.servlet.http.HttpServletResponse;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -21,6 +19,8 @@ import org.springframework.test.context.ActiveProfiles;
 import com.glinboy.linkshorter.controller.HomeController;
 import com.glinboy.linkshorter.service.ShorterServiceApi;
 import com.glinboy.linkshorter.service.dto.UrlDTO;
+
+import jakarta.servlet.http.HttpServletResponse;
 
 @ExtendWith(MockitoExtension.class)
 @ActiveProfiles("test")
