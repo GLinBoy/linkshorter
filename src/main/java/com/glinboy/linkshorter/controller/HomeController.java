@@ -1,7 +1,5 @@
 package com.glinboy.linkshorter.controller;
 
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -15,6 +13,7 @@ import com.glinboy.linkshorter.service.ShorterServiceApi;
 import com.glinboy.linkshorter.service.dto.UrlDTO;
 
 import io.swagger.v3.oas.annotations.Hidden;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 
 
