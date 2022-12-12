@@ -24,7 +24,7 @@ repositories {
 ext {
 	modelMapperVersion = '3.1.0'
 	riderJunitVersion = '1.35.0'
-	openapiVersion = '1.6.13'
+	openapiVersion = '2.0.0'
 	problemVersion = '0.27.0'
 }
 
@@ -39,7 +39,7 @@ dependencies {
 	implementation "org.springframework.boot:spring-boot-starter-undertow"
 	implementation 'org.flywaydb:flyway-core'
 	implementation "org.modelmapper:modelmapper:${modelMapperVersion}"
-	implementation "org.springdoc:springdoc-openapi-ui:${openapiVersion}"
+	implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:${openapiVersion}"
 	implementation 'org.hibernate.validator:hibernate-validator'
 	compileOnly "org.projectlombok:lombok"
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
