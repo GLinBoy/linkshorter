@@ -18,7 +18,7 @@ public class OpenApiConfig {
 		this.properties = applicationProperties;
 	}
 	@Bean
-	public OpenAPI springShopOpenAPI() {
+	OpenAPI springShopOpenAPI() {
 		return new OpenAPI()
 				.info(new Info().title(properties.getName())
 						.description(properties.getDescription())
