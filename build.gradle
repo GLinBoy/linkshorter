@@ -25,7 +25,6 @@ ext {
 	modelMapperVersion = '3.1.1'
 	riderJunitVersion = '1.36.0'
 	openapiVersion = '2.0.4'
-	problemVersion = '0.27.0'
 }
 
 defaultTasks "bootRun"
@@ -49,7 +48,6 @@ dependencies {
 	annotationProcessor "org.projectlombok:lombok"
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation "com.github.database-rider:rider-junit5:${riderJunitVersion}"
-	implementation "org.zalando:problem-spring-web-starter:${problemVersion}"
 }
 
 tasks.withType(JavaCompile) {
