@@ -8,8 +8,11 @@ plugins {
 
 group = 'com.glinboy'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 20
-targetCompatibility = 20
+
+java {
+	sourceCompatibility = JavaVersion.VERSION_20
+	targetCompatibility = JavaVersion.VERSION_20
+}
 
 configurations {
 	compileOnly {
