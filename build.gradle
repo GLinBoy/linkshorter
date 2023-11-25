@@ -27,7 +27,7 @@ repositories {
 ext {
 	modelMapperVersion = '3.2.0'
 	riderJunitVersion = '1.41.0'
-	openapiVersion = '2.1.0'
+	openapiVersion = '2.2.0'
 }
 
 defaultTasks "bootRun"
