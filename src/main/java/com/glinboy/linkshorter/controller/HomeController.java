@@ -35,7 +35,7 @@ public class HomeController {
 	}
 	
 	@GetMapping("/{code}")
-	public void getUrl(@PathVariable String code,
+	public void getUrl(@PathVariable("code") String code,
 			HttpServletResponse httpServletResponse) {
 		log.info("Reuqest to get URL with code: {}", code);
 		UrlDTO s = shorterService.getShort(code)
