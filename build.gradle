@@ -1,6 +1,6 @@
 plugins {
-	id 'org.springframework.boot' version '3.2.5'
-	id 'io.spring.dependency-management' version '1.1.4'
+	id 'org.springframework.boot' version '3.3.0'
+	id 'io.spring.dependency-management' version '1.1.5'
 	id 'java'
 	id 'com.github.ben-manes.versions' version '0.51.0'
 	id "org.ec4j.editorconfig" version "0.1.0"
@@ -10,8 +10,8 @@ group = 'com.glinboy'
 version = '0.0.1-SNAPSHOT'
 
 java {
-	sourceCompatibility = JavaVersion.VERSION_22
-	targetCompatibility = JavaVersion.VERSION_22
+	sourceCompatibility = JavaVersion.VERSION_21
+	targetCompatibility = JavaVersion.VERSION_21
 }
 
 configurations {
