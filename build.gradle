@@ -2,7 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '3.4.5'
 	id 'io.spring.dependency-management' version '1.1.7'
 	id 'java'
-	id 'com.github.ben-manes.versions' version '0.51.0'
+	id 'com.github.ben-manes.versions' version '0.52.0'
 	id "org.ec4j.editorconfig" version "0.1.0"
 }
 
@@ -25,9 +25,9 @@ repositories {
 }
 
 ext {
-	modelMapperVersion = '3.2.2'
+	modelMapperVersion = '3.2.3'
 	riderJunitVersion = '1.44.0'
-	openapiVersion = '2.7.0'
+	openapiVersion = '2.8.8'
 }
 
 defaultTasks "bootRun"
